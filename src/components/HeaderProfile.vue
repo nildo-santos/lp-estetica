@@ -1,4 +1,6 @@
 <script setup>
+import profileImage from '../assets/Perfil.png'
+
 const quickLinks = [
   { label: 'WhatsApp', href: '#whatsapp' },
   { label: 'Instagram', href: '#instagram' },
@@ -9,8 +11,9 @@ const quickLinks = [
 <template>
   <header class="flex w-full max-w-md flex-col items-center px-4 py-8 sm:px-6 sm:py-12">
     <img
-      src="https://placehold.co/240x240/FDFBF7/3F3F46?text=DR"
-      alt="Foto de perfil temporária de Deyse Rodrigues"
+      :src="profileImage"
+      alt="Deyse Rodrigues"
+      fetchpriority="high"
       class="h-28 w-28 rounded-full border-2 border-goldDetail object-cover shadow-sm sm:h-32 sm:w-32"
     />
 

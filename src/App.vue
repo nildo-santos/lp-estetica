@@ -2,6 +2,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import gsap from 'gsap'
 import AboutSection from './components/AboutSection.vue'
+import ContactSection from './components/ContactSection.vue'
 import HeaderProfile from './components/HeaderProfile.vue'
 import ServiceList from './components/ServiceList.vue'
 
@@ -27,8 +28,8 @@ onBeforeUnmount(() => {
 
 <template>
   <main class="min-h-screen bg-nudeBase">
-    <div ref="pageContent" class="mx-auto flex w-full max-w-md flex-col items-center pb-10">
-      <div data-animate class="w-full">
+    <div ref="pageContent" class="mx-auto flex w-full max-w-5xl flex-col items-center pb-10">
+      <div data-animate class="flex w-full justify-center">
         <HeaderProfile />
       </div>
 
@@ -36,8 +37,12 @@ onBeforeUnmount(() => {
         <AboutSection />
       </div>
 
-      <div data-animate class="w-full">
+      <div data-animate class="flex w-full justify-center">
         <ServiceList />
+      </div>
+
+      <div data-animate class="flex w-full justify-center">
+        <ContactSection />
       </div>
     </div>
   </main>
