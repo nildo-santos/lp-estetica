@@ -1,10 +1,17 @@
 <script setup>
 import profileImage from '../assets/Perfil.png'
 
+const googleMapsUrl =
+  'https://www.google.com/maps/place/Av.+Dom+H%C3%A9lder+C%C3%A2mara,+5644+-+Sl+607+-+Cachambi,+Rio+de+Janeiro+-+RJ,+20771-004,+Brasil/@-22.8872359,-43.2883949,17z/data=!3m1!4b1!4m6!3m5!1s0x997c536323e13f:0x84494904c0f975a5!8m2!3d-22.8872409!4d-43.28582!16s%2Fg%2F11x5nvs3h9?hl=pt-BR'
+
 const quickLinks = [
   { label: 'WhatsApp', href: '#whatsapp' },
-  { label: 'Instagram', href: '#instagram' },
-  { label: 'Como Chegar', href: '#como-chegar' },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/deyserodriguesestetica/',
+    external: true,
+  },
+  { label: 'Como Chegar', href: googleMapsUrl, external: true },
 ]
 </script>
 
@@ -30,6 +37,8 @@ const quickLinks = [
         v-for="link in quickLinks"
         :key="link.label"
         :href="link.href"
+        :target="link.external ? '_blank' : undefined"
+        :rel="link.external ? 'noopener noreferrer' : undefined"
         class="flex min-h-12 w-full items-center justify-center rounded-xl border border-goldDetail bg-white px-5 py-3 text-sm font-medium text-zinc-800 transition-colors hover:bg-nudeBase focus:outline-none focus:ring-2 focus:ring-goldDetail focus:ring-offset-2"
       >
         {{ link.label }}
