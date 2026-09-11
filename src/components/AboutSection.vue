@@ -73,10 +73,10 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 
 <template>
   <section class="about-section section-shell" aria-labelledby="about-title">
-    <h2 id="about-title" class="sr-only">Sobre Deyse Rodrigues</h2>
+    <div class="section-heading about-heading"><h2 id="about-title">Quem somos</h2><p>Conheça Deyse Rodrigues e sua forma de cuidar.</p></div>
 
     <div
-      class="mx-auto mb-8 max-w-3xl rounded-2xl border border-goldDetail/30 bg-white p-6 text-center shadow-[0_2px_12px_rgba(0,0,0,0.04)] sm:p-8"
+      class="about-intro mx-auto mb-8 max-w-3xl rounded-2xl border border-goldDetail/30 bg-white p-6 text-center shadow-[0_2px_12px_rgba(0,0,0,0.04)] sm:p-8"
     >
       <p class="text-sm leading-relaxed text-zinc-700 sm:text-base">
         Aqui, não trabalhamos com protocolos padrão. Cada tratamento é estratégico, individualizado
@@ -149,7 +149,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 .carousel-arrow svg { width: 22px; height: 22px; }
 .carousel-arrow:hover { background: #f3eddf; }
 .carousel-dots { display: flex; }
-.carousel-dot { display: grid; place-items: center; width: 36px; height: 44px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.carousel-dot { display: grid; place-items: center; width: 44px; height: 44px; border: 0; padding: 0; background: transparent; cursor: pointer; }
 .carousel-dot span { width: 8px; height: 8px; border-radius: 999px; background: #d8cfbd; }
 .carousel-dot.selected span { width: 22px; background: #9c7b2b; }
 .carousel-caption { margin-top: 8px; color: #71675c; font-size: 12px; }
@@ -158,8 +158,13 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 @media (min-width: 768px) { .presentation-carousel { max-width: 580px; } }
 @media (min-width: 1280px) {
   .about-section { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; gap: 24px clamp(32px, 5vw, 96px); }
-  .about-section > div:first-of-type { grid-column: 1; max-width: none; margin: 0; }
+  .about-intro { grid-column: 1; max-width: none; margin: 0; }
   .about-text-cards { grid-column: 1; grid-template-columns: 1fr; }
-  .presentation-carousel { grid-column: 2; grid-row: 1 / 3; max-width: 660px; margin-top: 0; }
+  .presentation-carousel { grid-column: 2; grid-row: 2 / 4; max-width: 660px; margin-top: 0; }
 }
+
+.about-intro { text-align: left; box-shadow: none; background: transparent; border: 0; padding: 0; }
+.about-text-cards article { text-align: left; border: 0; border-top: 1px solid var(--color-border); border-radius: 0; box-shadow: none; background: transparent; padding: 24px 0; }
+@media (min-width: 1280px) { .about-heading { grid-column: 1 / -1; margin-bottom: 0; } }
+@media (max-width: 360px) { .carousel-controls { gap: 4px; } }
 </style>

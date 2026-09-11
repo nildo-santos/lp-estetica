@@ -31,7 +31,7 @@ const categories = ref([
 
 <template>
   <section class="section-shell" aria-labelledby="services-title">
-    <h2 id="services-title" class="sr-only">Catálogo de serviços</h2>
+    <div class="section-heading"><h2 id="services-title">Procedimentos</h2><p>Explore os cuidados corporais e faciais. Abra os detalhes para conhecer cada procedimento.</p></div>
 
     <div class="procedure-areas">
       <ServiceCarousel v-for="category in categories" :key="category.name" :category="category" />

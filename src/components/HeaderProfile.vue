@@ -6,7 +6,7 @@ const googleMapsUrl =
   'https://www.google.com/maps/place/Av.+Dom+H%C3%A9lder+C%C3%A2mara,+5644+-+Sl+607+-+Cachambi,+Rio+de+Janeiro+-+RJ,+20771-004,+Brasil/@-22.8872359,-43.2883949,17z/data=!3m1!4b1!4m6!3m5!1s0x997c536323e13f:0x84494904c0f975a5!8m2!3d-22.8872409!4d-43.28582!16s%2Fg%2F11x5nvs3h9?hl=pt-BR'
 
 const quickLinks = [
-  contactLinks[0],
+  { ...contactLinks[0], label: 'Conversar pelo WhatsApp', primary: true },
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/deyserodriguesestetica/',
@@ -38,6 +38,7 @@ const quickLinks = [
         v-for="link in quickLinks"
         :key="link.label"
         :href="link.href"
+        :class="{ 'primary-contact': link.primary }"
         :target="link.external ? '_blank' : undefined"
         :rel="link.external ? 'noopener noreferrer' : undefined"
         class="flex min-h-12 w-full items-center justify-center rounded-xl border border-goldDetail bg-white px-5 py-3 text-sm font-medium text-zinc-800 transition-colors hover:bg-nudeBase focus:outline-none focus:ring-2 focus:ring-goldDetail focus:ring-offset-2"
@@ -63,4 +64,9 @@ const quickLinks = [
   .profile-header h1, .profile-header > p { text-align: left; margin: 0; }
   .profile-header nav { margin-top: 20px; max-width: 760px; }
 }
+
+.profile-header nav a { border-radius: var(--radius-control); font-size: .9375rem; min-height: 48px; }
+.profile-header nav .primary-contact { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+.profile-header nav .primary-contact:hover { background: var(--color-accent-hover); }
+@media (min-width: 1024px) { .profile-header { align-content: center; row-gap: 20px; } .profile-header nav { margin-top: 4px; } }
 </style>

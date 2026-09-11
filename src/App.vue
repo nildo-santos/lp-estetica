@@ -14,23 +14,27 @@ let entranceAnimation
 onMounted(() => {
   const sections = pageContent.value.querySelectorAll('[data-animate]')
 
-  entranceAnimation = gsap.from(sections, {
+  entranceAnimation = gsap.matchMedia()
+  entranceAnimation.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.from(sections, {
     opacity: 0,
     y: 24,
-    duration: 0.8,
-    stagger: 0.2,
+    duration: 0.35,
+    stagger: 0.06,
     ease: 'power2.out',
+    })
   })
 })
 
 onBeforeUnmount(() => {
-  entranceAnimation?.kill()
+  entranceAnimation?.revert()
 })
 </script>
 
 <template>
+  <a class="skip-link" href="#home">Ir para o conteúdo</a>
   <SiteNavbar />
-  <main id="home" class="min-h-screen bg-nudeBase">
+  <main tabindex="-1" id="home" class="min-h-screen bg-nudeBase">
     <div ref="pageContent" class="page-content flex flex-col items-center">
       <div data-animate class="flex w-full justify-center">
         <HeaderProfile />
