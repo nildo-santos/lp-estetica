@@ -65,11 +65,11 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 .service-carousel { min-width: 0; width: 100%; }
 .service-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 16px; }
 .service-track::-webkit-scrollbar { display: none; }
-.service-page { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 12px; padding: 4px; scroll-snap-align: start; scroll-snap-stop: always; }
-.service-card { min-width: 0; overflow: hidden; border: 1px solid #eae5dc; border-radius: var(--radius-card); background: var(--color-surface); text-align: left; box-shadow: 0 2px 4px #0000000d; }
+.service-page { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; grid-template-rows: auto auto 1fr; gap: 0 12px; padding: 4px; scroll-snap-align: start; scroll-snap-stop: always; }
+.service-card { display: grid; grid-template-rows: subgrid; grid-row: span 3; min-width: 0; overflow: hidden; border: 1px solid #eae5dc; border-radius: var(--radius-card); background: var(--color-surface); text-align: left; box-shadow: 0 2px 4px #0000000d; }
 .service-card:hover { border-color: #d4af37; }
 .service-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-.service-card > h4 { display: block; padding: 16px; font-size: 14px; line-height: 1.5; font-weight: 500; color: #3f3f46; overflow-wrap: anywhere; }
+.service-card > h4 { display: flex; align-items: center; min-height: calc(4.5em + 32px); margin: 0; padding: 16px; font-size: 14px; line-height: 1.5; font-weight: 500; color: #3f3f46; overflow-wrap: anywhere; }
 .service-controls { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; }
 .service-arrow { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #d4af3766; border-radius: 50%; background: #fff; color: #806727; cursor: pointer; }
 .service-arrow:hover { background: #f3eddf; }
@@ -81,7 +81,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 .service-caption { margin-top: 8px; font-size: 12px; color: #71675c; }
 .service-track:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #947421; outline-offset: 2px; }
 @media (max-width: 480px) { .service-page { gap: 8px; } .service-card > h4 { padding: 12px 8px; font-size: 14px; } }
-.service-details { margin: 0 12px 12px; border-top: 1px solid #eae5dc; }
+.service-details { align-self: start; margin: 0 12px 12px; border-top: 1px solid #eae5dc; }
 .service-details summary { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-height: 44px; padding: 8px 0; color: #806727; font-size: 14px; font-weight: 500; list-style: none; cursor: pointer; }
 .service-details summary::-webkit-details-marker { display: none; }
 .service-details summary svg { width: 18px; height: 18px; flex-shrink: 0; }

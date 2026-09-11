@@ -9,7 +9,7 @@ Site de apresentação em Vue para conhecer a profissional, explorar procediment
 - Quatro imagens de apresentação em carrossel.
 - Um carrossel por área, com dois procedimentos por página também no celular.
 - Detalhes nativos que abrem e fecham em cada procedimento.
-- Contatos flutuantes; não exibir número de WhatsApp nem identificador do Instagram.
+- Contatos no rodapé; não exibir número de WhatsApp nem identificador do Instagram.
 - Não inventar depoimentos, métricas, preços ou qualificações.
 
 ## Sistema visual
@@ -42,3 +42,8 @@ Os arquivos consultados estão em docs/design-references. São referências de p
 - Carrossel de apresentação mantém as quatro imagens e inclui resumo em texto legível do card selecionado.
 - Pendências de conteúdo: depoimentos reais autorizados e fotos reais do espaço. Não publicar conteúdo inventado para preencher essas seções.
 - Verificação: compilação e navegação em 320, 390, 768, 1024, 1440 e 2560 px; links dos seis procedimentos conferidos, detalhes e menu testados, imagens de desktop e celular revisadas.
+
+## Preferências atualizadas
+- Ícones de contato no rodapé, sem posição flutuante.
+- Cards de procedimentos alinhados por fileira, incluindo títulos e detalhes, com altura igual mesmo quando um detalhe abre.
+- Etapas de atendimento conectadas em uma linha do tempo horizontal no desktop e vertical no celular.

@@ -71,5 +71,8 @@ onBeforeUnmount(() => {
       </div>
     </div>
   </main>
-  <ContactLinks floating />
+  <footer class="site-footer">
+    <div><p class="footer-name">Deyse Rodrigues</p><p>Estética Integrativa &amp; Desinflamação</p></div>
+    <ContactLinks compact />
+  </footer>
 </template>

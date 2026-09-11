@@ -21,17 +21,26 @@ const steps = [
 </template>
 
 <style scoped>
-.care-section { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); background: #f3eee5; text-align: left; }
+.care-section { background: #f3eee5; text-align: left; }
+.care-intro { max-width: 680px; margin-bottom: 48px; }
 .care-intro h2 { font-size: clamp(30px, 3vw, 48px); }
 .care-intro h2 em { color: var(--color-accent); }
-.care-intro > p { max-width: 38ch; margin: 24px 0; color: var(--color-muted); }
+.care-intro > p { max-width: 48ch; margin: 24px 0 12px; color: var(--color-muted); }
 .care-intro a { display: inline-flex; align-items: center; gap: 16px; min-height: 48px; color: var(--color-accent); font-weight: 600; text-decoration: underline; text-underline-offset: 6px; }
-.care-steps { margin: 0; padding: 0; list-style: none; }
-.care-steps li { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid #ddd2bf; }
-.care-steps li:first-child { padding-top: 0; }
-.care-steps li:last-child { border: 0; padding-bottom: 0; }
-.step-number { color: var(--color-accent); font-family: var(--font-display); font-size: 24px; }
-.care-steps h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-.care-steps p { color: var(--color-muted); }
-@media (max-width: 767px) { .care-section { grid-template-columns: 1fr; } .care-steps li { gap: 16px; } }
+.care-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+.care-steps li { position: relative; display: grid; grid-template-rows: 56px 1fr; gap: 24px; padding-right: 32px; }
+.care-steps li::before { content: ''; position: absolute; height: 2px; background: #b59d66; top: 27px; left: 28px; right: -28px; }
+.care-steps li:last-child { padding-right: 0; }
+.care-steps li:last-child::before { display: none; }
+.step-number { position: relative; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent); color: white; border: 6px solid #f3eee5; box-shadow: 0 0 0 1px #b59d66; font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.care-steps h3 { font-size: 20px; font-family: var(--font-display); margin-bottom: 12px; }
+.care-steps p { color: var(--color-muted); max-width: 42ch; }
+@media (max-width: 767px) {
+  .care-intro { margin-bottom: 32px; }
+  .care-steps { grid-template-columns: 1fr; }
+  .care-steps li { grid-template-columns: 56px minmax(0, 1fr); grid-template-rows: auto; gap: 20px; padding: 0 0 36px; }
+  .care-steps li::before { width: 2px; height: auto; top: 28px; bottom: -28px; left: 27px; right: auto; }
+  .care-steps li:last-child { padding-bottom: 0; }
+  .care-steps h3 { padding-top: 10px; }
+}
 </style>
