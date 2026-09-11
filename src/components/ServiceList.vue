@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import ServiceCarousel from './ServiceCarousel.vue'
 import depilationImage from '../assets/Depilação.jpg'
 import lymphaticDrainageImage from '../assets/drenagem-linfatica-tijuca-rj.png'
 import facialCleansingImage from '../assets/Limpeza de pele.avif'
@@ -11,57 +12,35 @@ const categories = ref([
   {
     name: 'Corporal',
     services: [
-      { name: 'Drenagem Linfática', image: lymphaticDrainageImage },
-      { name: 'Massagem Relaxante', image: relaxingMassageImage },
-      { name: 'Ventosaterapia', image: cuppingTherapyImage },
-      { name: 'Depilação', image: depilationImage },
+      { name: 'Drenagem Linfática', image: lymphaticDrainageImage, description: 'Técnica manual com movimentos suaves e ritmados. Converse com a profissional para conhecer a proposta de atendimento e os cuidados da sessão.' },
+      { name: 'Massagem Relaxante', image: relaxingMassageImage, description: 'Uma pausa dedicada ao relaxamento e ao cuidado corporal. Os detalhes da sessão são combinados no atendimento.' },
+      { name: 'Ventosaterapia', image: cuppingTherapyImage, description: 'Procedimento realizado com ventosas. No atendimento, você recebe informações sobre a técnica e os cuidados envolvidos.' },
+      { name: 'Depilação', image: depilationImage, description: 'Cuidado voltado à remoção dos pelos. Entre em contato para consultar as regiões atendidas, a técnica utilizada e o preparo para a sessão.' },
     ],
   },
   {
     name: 'Facial',
     services: [
-      { name: 'Limpeza de Pele', image: facialCleansingImage },
-      { name: 'Rejuvenescimento Facial', image: rejuvenationImage },
+      { name: 'Limpeza de Pele', image: facialCleansingImage, description: 'Uma sessão dedicada à limpeza e aos cuidados com a pele do rosto. As etapas e orientações são apresentadas durante o atendimento.' },
+      { name: 'Rejuvenescimento Facial', image: rejuvenationImage, description: 'Cuidados faciais com foco na aparência da pele. Converse com a profissional para conhecer as opções e definir a proposta de atendimento.' },
     ],
   },
 ])
 
-function handleServiceClick(serviceName) {
-  console.log('Serviço selecionado:', serviceName)
-}
 </script>
 
 <template>
-  <section class="w-full max-w-3xl px-4 py-6" aria-labelledby="services-title">
+  <section class="section-shell" aria-labelledby="services-title">
     <h2 id="services-title" class="sr-only">Catálogo de serviços</h2>
 
-    <div class="flex flex-col gap-8">
-      <div v-for="category in categories" :key="category.name">
-        <h3 class="mb-3 font-serif text-xl font-semibold text-zinc-800">
-          {{ category.name }}
-        </h3>
-
-        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <button
-            v-for="service in category.services"
-            :key="service.name"
-            type="button"
-            class="group w-full overflow-hidden rounded-2xl border border-zinc-100 bg-white text-left shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-goldDetail hover:shadow-md focus:outline-none focus:ring-2 focus:ring-goldDetail focus:ring-offset-2 active:translate-y-0"
-            @click="handleServiceClick(service.name)"
-          >
-            <img
-              :src="service.image"
-              :alt="`Tratamento de ${service.name}`"
-              loading="lazy"
-              decoding="async"
-              class="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-105"
-            />
-            <span class="block px-4 py-4 text-sm font-medium text-zinc-700 group-hover:text-zinc-900">
-              {{ service.name }}
-            </span>
-          </button>
-        </div>
-      </div>
+    <div class="procedure-areas">
+      <ServiceCarousel v-for="category in categories" :key="category.name" :category="category" />
     </div>
   </section>
 </template>
+
+
+<style scoped>
+.procedure-areas { display: grid; gap: 36px; min-width: 0; }
+@media (min-width: 1280px) { .procedure-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; align-items: start; } }
+</style>

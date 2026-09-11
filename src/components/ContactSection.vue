@@ -1,4 +1,5 @@
 <script setup>
+import ContactLinks from './ContactLinks.vue'
 const businessHours = [
   { days: 'Segunda a sexta', hours: '09:00 às 18:00' },
   { days: 'Sábado', hours: '09:00 às 17:00' },
@@ -13,8 +14,13 @@ const googleMapsEmbedUrl =
 </script>
 
 <template>
-  <section class="w-full max-w-5xl px-4 py-8 sm:px-6" aria-label="Informações de atendimento">
-    <div class="grid grid-cols-1 items-start gap-4 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
+  <section class="section-shell" aria-label="Informações de atendimento">
+    <div class="mb-8">
+      <h2 class="font-serif text-2xl text-zinc-800">Contato</h2>
+      <p class="mb-6 mt-3 text-sm text-zinc-600">Escolha o melhor canal para falar com a gente.</p>
+      <ContactLinks />
+    </div>
+    <div class="grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
       <article
         class="rounded-2xl border border-goldDetail/30 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)]"
       >

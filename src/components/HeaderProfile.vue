@@ -1,11 +1,12 @@
 <script setup>
 import profileImage from '../assets/Perfil.png'
+import { contactLinks } from '../utils/contacts'
 
 const googleMapsUrl =
   'https://www.google.com/maps/place/Av.+Dom+H%C3%A9lder+C%C3%A2mara,+5644+-+Sl+607+-+Cachambi,+Rio+de+Janeiro+-+RJ,+20771-004,+Brasil/@-22.8872359,-43.2883949,17z/data=!3m1!4b1!4m6!3m5!1s0x997c536323e13f:0x84494904c0f975a5!8m2!3d-22.8872409!4d-43.28582!16s%2Fg%2F11x5nvs3h9?hl=pt-BR'
 
 const quickLinks = [
-  { label: 'WhatsApp', href: '#whatsapp' },
+  contactLinks[0],
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/deyserodriguesestetica/',
@@ -16,7 +17,7 @@ const quickLinks = [
 </script>
 
 <template>
-  <header class="flex w-full max-w-md flex-col items-center px-4 py-8 sm:px-6 sm:py-12">
+  <header class="profile-header section-shell">
     <img
       :src="profileImage"
       alt="Deyse Rodrigues"
@@ -46,3 +47,20 @@ const quickLinks = [
     </nav>
   </header>
 </template>
+
+<style scoped>
+.profile-header { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.profile-header h1 { margin: 16px 0 0; font-size: clamp(30px, 3.2vw, 64px); line-height: 1.12; }
+.profile-header > p { max-width: 48ch; }
+.profile-header nav { max-width: 440px; }
+@media (min-width: 768px) {
+  .profile-header nav { flex-direction: row; max-width: 760px; }
+  .profile-header > img { width: 160px; height: 160px; }
+}
+@media (min-width: 1024px) {
+  .profile-header { display: grid; grid-template-columns: clamp(180px, 20vw, 320px) minmax(0, 1fr); column-gap: clamp(32px, 5vw, 96px); text-align: left; }
+  .profile-header > img { grid-row: 1 / 4; width: 100%; height: auto; aspect-ratio: 1; }
+  .profile-header h1, .profile-header > p { text-align: left; margin: 0; }
+  .profile-header nav { margin-top: 20px; max-width: 760px; }
+}
+</style>
