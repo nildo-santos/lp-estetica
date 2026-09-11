@@ -45,6 +45,12 @@ const presentationImages = [
 const carousel = ref(null)
 const activeSlide = ref(0)
 const slideTitles = ['Quem sou eu', 'Minha missão', 'Meus valores', 'Eu acredito']
+const slideDescriptions = [
+  'Deyse Rodrigues atua há mais de 8 anos com estética integrativa, desinflamação, reestruturação corporal e pós-operatório.',
+  'Cuidar da autoestima com um olhar individual, respeitando a saúde e as necessidades de cada pessoa.',
+  'Atendimento humanizado, escuta e cuidado com a saúde orientam a relação com cada pessoa.',
+  'Cada tratamento deve ser pensado de forma individual. O cuidado começa por entender você, sem promessas rápidas.',
+]
 let resizeObserver
 
 function goToSlide(index) {
@@ -133,6 +139,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg>
         </button>
       </div>
+      <div class="slide-reading"><h3>{{ slideTitles[activeSlide] }}</h3><p>{{ slideDescriptions[activeSlide] }}</p></div>
       <p class="carousel-caption" aria-live="polite" aria-atomic="true">{{ activeSlide + 1 }} / {{ presentationImages.length }} — {{ slideTitles[activeSlide] }}</p>
     </div>
   </section>
@@ -167,4 +174,8 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 .about-text-cards article { text-align: left; border: 0; border-top: 1px solid var(--color-border); border-radius: 0; box-shadow: none; background: transparent; padding: 24px 0; }
 @media (min-width: 1280px) { .about-heading { grid-column: 1 / -1; margin-bottom: 0; } }
 @media (max-width: 360px) { .carousel-controls { gap: 4px; } }
+
+.slide-reading { padding: 20px 0 12px; text-align: left; border-top: 1px solid var(--color-border); margin-top: 20px; }
+.slide-reading h3 { font-family: var(--font-display); font-size: 24px; margin-bottom: 8px; }
+.slide-reading p { color: var(--color-muted); font-size: 1rem; line-height: 1.7; }
 </style>

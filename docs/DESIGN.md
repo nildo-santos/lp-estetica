@@ -34,3 +34,11 @@ Os arquivos consultados estão em docs/design-references. São referências de p
 - Detalhes de procedimentos com fonte maior no celular.
 - Animação de entrada respeita movimento reduzido e usa duração de 350ms.
 - Link para pular navegação e metadados em português.
+
+## Evolução da apresentação
+- Abertura com fotografia existente em destaque, mensagem sobre cuidado individual e ação para solicitar avaliação pelo WhatsApp.
+- Confirmado pelo usuário: avaliação inicial, proposta personalizada de cuidado e acompanhamento.
+- Cada procedimento possui link de interesse com mensagem específica, sem envio automático.
+- Carrossel de apresentação mantém as quatro imagens e inclui resumo em texto legível do card selecionado.
+- Pendências de conteúdo: depoimentos reais autorizados e fotos reais do espaço. Não publicar conteúdo inventado para preencher essas seções.
+- Verificação: compilação e navegação em 320, 390, 768, 1024, 1440 e 2560 px; links dos seis procedimentos conferidos, detalhes e menu testados, imagens de desktop e celular revisadas.

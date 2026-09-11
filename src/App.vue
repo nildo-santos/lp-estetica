@@ -7,6 +7,7 @@ import HeaderProfile from './components/HeaderProfile.vue'
 import ServiceList from './components/ServiceList.vue'
 import SiteNavbar from './components/SiteNavbar.vue'
 import ContactLinks from './components/ContactLinks.vue'
+import CareJourney from './components/CareJourney.vue'
 
 const pageContent = ref(null)
 let entranceAnimation
@@ -47,6 +48,8 @@ onBeforeUnmount(() => {
       <div data-animate class="flex w-full justify-center">
         <ServiceList id="procedimentos" />
       </div>
+
+      <CareJourney />
 
       <div data-animate class="flex w-full justify-center">
         <div class="section-shell">

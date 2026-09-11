@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { whatsappFor } from '../utils/contacts'
 
 const props = defineProps({ category: { type: Object, required: true } })
 const pages = computed(() => {
@@ -44,6 +45,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </summary>
             <p>{{ service.description }}</p>
+            <a class="service-interest" :href="whatsappFor(`Olá, Deyse! Tenho interesse em ${service.name}. Gostaria de saber mais sobre o procedimento e o agendamento.`)" target="_blank" rel="noopener noreferrer" :aria-label="`Tenho interesse em ${service.name}`">Tenho interesse <span aria-hidden="true">↗</span></a>
           </details>
         </article>
       </div>
@@ -89,5 +91,10 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 .service-details[open] summary svg { transform: rotate(180deg); }
 .service-details p { padding: 2px 0 8px; color: #655d54; font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
 @media (max-width: 480px) { .service-details { margin-inline: 8px; } .service-details p { font-size: 14px; } }
+</style>
+
+<style scoped>
+.service-interest { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-height: 44px; margin-top: 12px; padding: 10px 12px; border-radius: var(--radius-control); background: var(--color-accent); color: white; font-size: 14px; font-weight: 500; }
+.service-interest:hover { background: var(--color-accent-hover); }
 </style>
 

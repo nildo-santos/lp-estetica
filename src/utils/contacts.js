@@ -3,3 +3,7 @@ export const contactLinks = [
   { id: 'instagram', label: 'Instagram', detail: '@deyserodriguesestetica', href: 'https://www.instagram.com/deyserodriguesestetica/', external: true },
   { id: 'email', label: 'E-mail', detail: 'deyserodriguesestetica@gmail.com', href: 'mailto:deyserodriguesestetica@gmail.com', external: false },
 ]
+
+export function whatsappFor(message) {
+  return contactLinks[0].href + '?text=' + encodeURIComponent(message)
+}
